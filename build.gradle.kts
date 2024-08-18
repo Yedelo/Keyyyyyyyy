@@ -6,10 +6,21 @@ plugins {
     id("io.github.juuxel.loom-quiltflower")
     id("dev.architectury.architectury-pack200")
     id("com.github.johnrengelman.shadow")
+    id("net.kyori.blossom") version "1.3.1"
 }
 
-group = "dev.debuggings"
-version = "1.0.0"
+version = properties["mod_version"]!!
+
+repositories {
+    maven("https://repo.essential.gg/repository/maven-public")
+    maven("https://repo.spongepowered.org/repository/maven-public")
+}
+
+dependencies {
+    minecraft("com.mojang:minecraft:1.8.9")
+    mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
+    forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
+}
 
 loom {
     runConfigs {
@@ -20,55 +31,35 @@ loom {
 
     launchConfigs {
         getByName("client") {
-            arg("--tweakClass", "gg.essential.loader.stage0.EssentialSetupTweaker")
-            arg("--mixin", "mixins.examplemod.json")
+            property("fml.coreMods.load", "at.yedel.keyyyyyyyy.launch.KeyyyyyyyyLoadingPlugin")
         }
     }
 
     forge {
         pack200Provider.set(Pack200Adapter())
-        mixinConfig("mixins.examplemod.json")
     }
 }
 
-val embed: Configuration by configurations.creating
-configurations.implementation.get().extendsFrom(embed)
-
-dependencies {
-    minecraft("com.mojang:minecraft:1.8.9")
-    mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
-    forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
-
-    compileOnly("gg.essential:essential-1.8.9-forge:4955+g395141645")
-    embed("gg.essential:loader-launchwrapper:1.1.3")
-
-    compileOnly("org.spongepowered:mixin:0.8.5-SNAPSHOT")
-    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
-}
-
-repositories {
-    maven("https://repo.essential.gg/repository/maven-public")
-    maven("https://repo.spongepowered.org/repository/maven-public")
+blossom {
+    replaceTokenIn("src/main/java/at/yedel/keyyyyyyyy/Keyyyyyyyy.java")
+    replaceToken("#version#", version)
 }
 
 tasks {
     jar {
-        from(embed.files.map { zipTree(it) })
-
         manifest.attributes(
             mapOf(
-                "ModSide" to "CLIENT",
-                "TweakClass" to "gg.essential.loader.stage0.EssentialSetupTweaker",
-                "MixinConfigs" to "mixins.examplemod.json"
+                "FMLCorePlugin" to "at.yedel.keyyyyyyyy.launch.KeyyyyyyyyLoadingPlugin",
+                "FMLCorePluginContainsFMLMod" to "yes, true, correct, indeed, positive, 1",
+                "ForceLoadAsMod" to "true",
+                "ModSide" to "CLIENT"
             )
         )
     }
 
     processResources {
-        inputs.property("version", project.version)
-        inputs.property("mcversion", "1.8.9")
         filesMatching("mcmod.info") {
-            expand("version" to project.version, "mcversion" to "1.8.9")
+            expand("version" to version)
         }
     }
 
