@@ -10,7 +10,6 @@ import net.minecraftforge.fml.common.Mod;
 	modid = "keyyyyyyyy",
 	name = "Keyyyyyyyy",
 	version = "#version#",
-	clientSideOnly = true,
-	acceptedMinecraftVersions = "1.8.9"
+	clientSideOnly = true
 )
 public class Keyyyyyyyy {}

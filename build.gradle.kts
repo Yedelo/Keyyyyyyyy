@@ -41,6 +41,7 @@ loom {
 }
 
 blossom {
+    replaceTokenIn("src/main/java/at/yedel/keyyyyyyyy/launch/KeyyyyyyyyLoadingPlugin.java")
     replaceTokenIn("src/main/java/at/yedel/keyyyyyyyy/Keyyyyyyyy.java")
     replaceToken("#version#", version)
 }
