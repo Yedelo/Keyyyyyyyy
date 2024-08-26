@@ -62,6 +62,7 @@ tasks {
         filesMatching("mcmod.info") {
             expand("version" to version)
         }
+        outputs.upToDateWhen {false}
     }
 
     withType<JavaCompile> {
