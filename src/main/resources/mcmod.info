@@ -2,7 +2,7 @@
     {
         "modid": "keyyyyyyyy",
         "name": "Keyyyyyyyy",
-        "description": "Enables keyboard repeat events on versions before 1.13",
+        "description": "Enables keyboard repeat events on versions 1.8 to 1.12.2",
         "version": "${version}",
         "url": "https://modrinth.com/mod/keyyyyyyyy",
         "updateUrl": "",
