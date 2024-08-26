@@ -1,1 +1,1 @@
-This mod enables keyboard repeat events on versions from 1.8 to 1.12.2, allowing you to hold keys to repeat events such as dropping items or changing perspective.
+This mod enables keyboard repeat events on versions 1.8 to 1.12.2, allowing you to hold keys to repeat events such as dropping items or changing perspective.
