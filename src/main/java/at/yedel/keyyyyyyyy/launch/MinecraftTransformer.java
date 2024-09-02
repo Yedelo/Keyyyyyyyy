@@ -48,13 +48,22 @@ public class MinecraftTransformer implements IClassTransformer, Opcodes {
 		for (AbstractInsnNode insnNode: methodNode.instructions.toArray()) {
 			if (insnNode instanceof MethodInsnNode) {
 				if (Objects.equals(((MethodInsnNode) insnNode).name, "isRepeatEvent")) {
-					keyyyyyyyy.info("   - Found isRepeatEvent method node, transforming");
+					keyyyyyyyy.info(" - Found isRepeatEvent method node, transforming...");
+
+
+					// First removes the IFNE that jumps to return if the top of the stack is truthy
+					// Then remove the method invocation itself
+
+					methodNode.instructions.remove(insnNode.getNext());
+					methodNode.instructions.remove(insnNode);
+
+					// Now add the Keyboard.enableRepeatEvents(); to the start of the method
+					// This could be done without searching for the condition first, but then one change could apply without the other
 					InsnList insnList = new InsnList();
 					insnList.add(new InsnNode(ICONST_1));
 					insnList.add(new MethodInsnNode(INVOKESTATIC, "org/lwjgl/input/Keyboard", "enableRepeatEvents", "(Z)V", false));
-					insnList.add(new InsnNode(ICONST_1));
-					methodNode.instructions.insertBefore(insnNode, insnList);
-					methodNode.instructions.remove(insnNode);
+					methodNode.instructions.insert(insnList);
+
 					return true;
 				}
 			}
