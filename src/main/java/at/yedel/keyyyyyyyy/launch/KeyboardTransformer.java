@@ -2,8 +2,10 @@ package at.yedel.keyyyyyyyy.launch;
 
 
 
+import java.util.ArrayList;
 import java.util.Objects;
 
+import org.objectweb.asm.Type;
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
@@ -15,6 +17,8 @@ import static at.yedel.keyyyyyyyy.launch.KeyyyyyyyyLoadingPlugin.keyyyyyyyy;
 
 
 public class KeyboardTransformer implements IClassTransformer, Opcodes {
+	private final AnnotationNode keyyyyyyyyTransformedAnnotation = new AnnotationNode(Type.getDescriptor(KeyyyyyyyyTransformed.class));
+
 	@Override
 	public byte[] transform(String name, String transformedName, byte[] basicClass) {
 		if (!Objects.equals(name, "org.lwjgl.input.Keyboard")) return basicClass;
@@ -23,6 +27,10 @@ public class KeyboardTransformer implements IClassTransformer, Opcodes {
 		ClassReader classReader = new ClassReader(basicClass);
 		classReader.accept(classNode, 0);
 
+		if (classNode.visibleAnnotations == null) {
+			classNode.visibleAnnotations = new ArrayList<AnnotationNode>();
+		}
+		classNode.visibleAnnotations.add(keyyyyyyyyTransformedAnnotation);
 		for (MethodNode methodNode: classNode.methods) {
 			switch (methodNode.name) {
 				case "enableRepeatEvents":
@@ -46,6 +54,7 @@ public class KeyboardTransformer implements IClassTransformer, Opcodes {
 	}
 
 	private void transformEnableRepeatEvents(MethodNode methodNode) {
+		addKeyyyyyyyyTransformedAnnotation(methodNode);
 		insertInsns(
 			methodNode,
 			new InsnNode(ICONST_1), new VarInsnNode(ISTORE, 0)
@@ -53,6 +62,7 @@ public class KeyboardTransformer implements IClassTransformer, Opcodes {
 	}
 
 	private void transformAreRepeatEventsEnabled(MethodNode methodNode) {
+		addKeyyyyyyyyTransformedAnnotation(methodNode);
 		insertInsns(
 			methodNode,
 			new InsnNode(ICONST_1), new InsnNode(IRETURN)
@@ -60,10 +70,18 @@ public class KeyboardTransformer implements IClassTransformer, Opcodes {
 	}
 
 	private void transformIsRepeatEvent(MethodNode methodNode) {
+		addKeyyyyyyyyTransformedAnnotation(methodNode);
 		insertInsns(
 			methodNode,
 			new InsnNode(ICONST_0), new InsnNode(IRETURN)
 		);
+	}
+
+	private void addKeyyyyyyyyTransformedAnnotation(MethodNode methodNode) {
+		if (methodNode.visibleAnnotations == null) {
+			methodNode.visibleAnnotations = new ArrayList<AnnotationNode>();
+		}
+		methodNode.visibleAnnotations.add(keyyyyyyyyTransformedAnnotation);
 	}
 
 	private void insertInsns(MethodNode methodNode, AbstractInsnNode... insns) {
