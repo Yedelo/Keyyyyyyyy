@@ -1,9 +1,9 @@
 [
     {
-        "modid": "keyyyyyyyy",
+        "modid": "${mod_id}",
         "name": "Keyyyyyyyy",
-        "description": "Enables keyboard repeat events on versions 1.8 to 1.12.2",
-        "version": "${version}",
+        "description": "${mod_description}",
+        "version": "${mod_version}",
         "url": "https://modrinth.com/mod/keyyyyyyyy",
         "updateUrl": "",
         "authorList": ["Yedel"],

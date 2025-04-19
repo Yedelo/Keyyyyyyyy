@@ -21,7 +21,7 @@ import org.apache.logging.log4j.core.filter.RegexFilter;
 
 @Name("KeyyyyyyyyLoadingPlugin")
 public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
-	public static final String version = "#version#";
+	public static final String version = "@MOD_VERSION@";
 	public static final org.apache.logging.log4j.Logger keyyyyyyyy = LogManager.getLogger("Keyyyyyyyy");
 
 	static {
