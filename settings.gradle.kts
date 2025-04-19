@@ -20,7 +20,18 @@ pluginManagement {
 rootProject.buildFileName = "root.gradle.kts"
 
 listOf(
-    "1.8.9-forge"
+    "1.12.2-forge",
+    "1.12.1-forge",
+    "1.12-forge",
+    "1.11.2-forge",
+    "1.11-forge",
+    "1.10.2-forge",
+    "1.10-forge",
+    "1.9.4-forge",
+    "1.9-forge",
+    "1.8.9-forge",
+    // "1.8.8-forge",
+    // "1.8-forge"
 ).forEach { version ->
     include(":$version")
     project(":$version").apply {
