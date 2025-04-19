@@ -1,4 +1,4 @@
-package at.yedel.keyyyyyyyy.launch;
+package at.yedel.keyyyyyyyy.launch.forge;
 
 
 
@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import at.yedel.keyyyyyyyy.launch.KeyyyyyyyyConstants;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.launchwrapper.LaunchClassLoader;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
@@ -17,13 +18,12 @@ import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.filter.RegexFilter;
 
+import static at.yedel.keyyyyyyyy.launch.KeyyyyyyyyConstants.keyyyyyyyy;
+
 
 
 @Name("KeyyyyyyyyLoadingPlugin")
 public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
-	public static final String version = "@MOD_VERSION@";
-	public static final org.apache.logging.log4j.Logger keyyyyyyyy = LogManager.getLogger("Keyyyyyyyy");
-
 	static {
 		unlockLwjgl();
 	}
@@ -89,9 +89,7 @@ public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
 
 	@Override
 	public String[] getASMTransformerClass() {
-		return new String[] {
-			KeyboardTransformer.class.getName()
-		};
+		return new String[] {KeyboardClassTransformer.class.getName()};
 	}
 
 	@Override
@@ -106,7 +104,7 @@ public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
 
 	@Override
 	public void injectData(Map<String, Object> map) {
-		keyyyyyyyy.info("Starting Keyyyyyyyy {}", version);
+		keyyyyyyyy.info("Starting Keyyyyyyyy {} (Forge)", KeyyyyyyyyConstants.MOD_VERSION);
 	}
 
 	@Override

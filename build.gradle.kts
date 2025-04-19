@@ -21,7 +21,7 @@ toolkitLoomHelper {
     disableRunConfigs(GameSide.SERVER)
 
     if (mcData.isLegacyForge) {
-        useCoreMod("at.yedel.keyyyyyyyy.launch.KeyyyyyyyyLoadingPlugin")
+        useCoreMod("at.yedel.keyyyyyyyy.launch.forge.KeyyyyyyyyLoadingPlugin")
     }
 
     useDevAuth(devAuthVersion)

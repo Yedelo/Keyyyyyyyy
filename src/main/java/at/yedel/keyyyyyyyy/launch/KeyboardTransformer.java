@@ -3,30 +3,28 @@ package at.yedel.keyyyyyyyy.launch;
 
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import org.objectweb.asm.Type;
-import net.minecraft.launchwrapper.IClassTransformer;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 
-import static at.yedel.keyyyyyyyy.launch.KeyyyyyyyyLoadingPlugin.keyyyyyyyy;
+import static at.yedel.keyyyyyyyy.launch.KeyyyyyyyyConstants.keyyyyyyyy;
 
 
 
-public class KeyboardTransformer implements IClassTransformer, Opcodes {
+public class KeyboardTransformer implements Opcodes {
+	private KeyboardTransformer() {}
+
+	private static final KeyboardTransformer instance = new KeyboardTransformer();
+
+	public static KeyboardTransformer getInstance() {
+		return instance;
+	}
+
 	private final AnnotationNode keyyyyyyyyTransformedAnnotation = new AnnotationNode(Type.getDescriptor(KeyyyyyyyyTransformed.class));
 
-	@Override
-	public byte[] transform(String name, String transformedName, byte[] basicClass) {
-		if (!Objects.equals(name, "org.lwjgl.input.Keyboard")) return basicClass;
+	public void transform(ClassNode classNode) {
 		keyyyyyyyy.info("Found Keyboard class, transforming...");
-		ClassNode classNode = new ClassNode();
-		ClassReader classReader = new ClassReader(basicClass);
-		classReader.accept(classNode, 0);
-
 		if (classNode.visibleAnnotations == null) {
 			classNode.visibleAnnotations = new ArrayList<AnnotationNode>();
 		}
@@ -47,10 +45,6 @@ public class KeyboardTransformer implements IClassTransformer, Opcodes {
 					break;
 			}
 		}
-
-		ClassWriter classWriter = new ClassWriter(0);
-		classNode.accept(classWriter);
-		return classWriter.toByteArray();
 	}
 
 	private void transformEnableRepeatEvents(MethodNode methodNode) {
