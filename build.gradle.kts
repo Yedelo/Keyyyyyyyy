@@ -15,16 +15,14 @@ plugins {
     }
 }
 
-
-
 toolkitLoomHelper {
     disableRunConfigs(GameSide.SERVER)
 
     if (mcData.isLegacyForge) {
         useCoreMod("at.yedel.keyyyyyyyy.launch.forge.KeyyyyyyyyLoadingPlugin")
+        useDevAuth(devAuthVersion)
     }
 
-    useDevAuth(devAuthVersion)
     useArgument("--version", "Keyyyyyyyy", GameSide.CLIENT)
     val resourcePackDir: String? = System.getenv("minecraft.resourcePackDir")
     if (!resourcePackDir.isNullOrBlank()) {
