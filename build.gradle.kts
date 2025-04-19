@@ -1,6 +1,7 @@
 import dev.deftu.gradle.utils.GameSide
 import dev.deftu.gradle.utils.version.MinecraftVersions
 
+val fabricAsmVersion: String by project
 val devAuthVersion: String by project
 
 plugins {
@@ -9,6 +10,7 @@ plugins {
         "tools",
         "tools.java",
         "tools.minecraft.loom",
+        "tools.ducks",
         "tools.bloom",
         "tools.resources"
     )) {
@@ -22,6 +24,7 @@ dependencies {
             if (mcData.version >= MinecraftVersions.VERSION_1_12) "2.0-beta9" else "2.8.1"
         }")
     }
+    listOf("modImplementation", "include").forEach {it("com.github.Chocohead:Fabric-ASM:$fabricAsmVersion")}
 }
 
 toolkitLoomHelper {
