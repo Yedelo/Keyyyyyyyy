@@ -1,8 +1,8 @@
-package at.yedel.keyyyyyyyy;
+package at.yedel.keyyyyyyyy.forge;
 
 
 
-import at.yedel.keyyyyyyyy.launch.KeyyyyyyyyConstants;
+import at.yedel.keyyyyyyyy.common.KeyyyyyyyyConstants;
 import net.minecraftforge.fml.common.Mod;
 
 

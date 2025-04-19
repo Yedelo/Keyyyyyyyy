@@ -1,4 +1,4 @@
-package at.yedel.keyyyyyyyy.launch;
+package at.yedel.keyyyyyyyy.common.launch;
 
 
 
@@ -8,7 +8,7 @@ import org.objectweb.asm.Type;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 
-import static at.yedel.keyyyyyyyy.launch.KeyyyyyyyyConstants.keyyyyyyyy;
+import static at.yedel.keyyyyyyyy.common.KeyyyyyyyyConstants.keyyyyyyyy;
 
 
 
@@ -26,7 +26,7 @@ public class KeyboardTransformer implements Opcodes {
 	public void transform(ClassNode classNode) {
 		keyyyyyyyy.info("Found Keyboard class, transforming...");
 		if (classNode.visibleAnnotations == null) {
-			classNode.visibleAnnotations = new ArrayList<AnnotationNode>();
+			classNode.visibleAnnotations = new ArrayList<>();
 		}
 		classNode.visibleAnnotations.add(keyyyyyyyyTransformedAnnotation);
 		for (MethodNode methodNode: classNode.methods) {
@@ -73,7 +73,7 @@ public class KeyboardTransformer implements Opcodes {
 
 	private void addKeyyyyyyyyTransformedAnnotation(MethodNode methodNode) {
 		if (methodNode.visibleAnnotations == null) {
-			methodNode.visibleAnnotations = new ArrayList<AnnotationNode>();
+			methodNode.visibleAnnotations = new ArrayList<>();
 		}
 		methodNode.visibleAnnotations.add(keyyyyyyyyTransformedAnnotation);
 	}

@@ -1,4 +1,4 @@
-package at.yedel.keyyyyyyyy.launch.forge;
+package at.yedel.keyyyyyyyy.forge.launch;
 
 
 
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import at.yedel.keyyyyyyyy.launch.KeyyyyyyyyConstants;
+import at.yedel.keyyyyyyyy.common.KeyyyyyyyyConstants;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.launchwrapper.LaunchClassLoader;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
@@ -18,7 +18,7 @@ import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.filter.RegexFilter;
 
-import static at.yedel.keyyyyyyyy.launch.KeyyyyyyyyConstants.keyyyyyyyy;
+import static at.yedel.keyyyyyyyy.common.KeyyyyyyyyConstants.keyyyyyyyy;
 
 
 
@@ -30,6 +30,7 @@ public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
 
 	// Taken from LWJGLTwoPointFive
 	// https://github.com/DJtheRedstoner/LWJGLTwoPointFive/blob/master/src/main/java/me/djtheredstoner/lwjgl/plugin/LoadingPlugin.java#L13
+	@SuppressWarnings("unchecked")
 	private static void unlockLwjgl() {
 		boolean successfullyRemoved;
 		try {

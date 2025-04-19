@@ -1,8 +1,8 @@
-package at.yedel.keyyyyyyyy.launch.forge;
+package at.yedel.keyyyyyyyy.forge.launch;
 
 
 
-import at.yedel.keyyyyyyyy.launch.KeyboardTransformer;
+import at.yedel.keyyyyyyyy.common.launch.KeyboardTransformer;
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;

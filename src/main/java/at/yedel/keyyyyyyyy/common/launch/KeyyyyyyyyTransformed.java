@@ -1,4 +1,4 @@
-package at.yedel.keyyyyyyyy.launch;
+package at.yedel.keyyyyyyyy.common.launch;
 
 
 
