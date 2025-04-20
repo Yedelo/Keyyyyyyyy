@@ -17,6 +17,8 @@ Enables keyboard repeat events on versions before 1.13
 | 1.12.2 (Forge & Fabric)                    | ✅          | ✅               |
 | 1.11.2 (Forge & Fabric)                    | ✅          | ✅               |
 | 1.10.2 (Forge & Fabric)                    | ✅          | ✅               |
+| 1.9.4 (Forge)                              | ✅          | ✅               |
+| 1.9.4 (Fabric)                             | ❌          | ✅               |
 | 1.8.9 (Forge & Fabric)                     | ✅          | ✅               |
 | Other versions 1.8-1.12.2 (Forge & Fabric) | ✅          | ✅               |
 | Versions before 1.8 (Forge)                | ❌          | ❌               |
