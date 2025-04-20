@@ -37,7 +37,7 @@ toolkitLoomHelper {
     useCoreMod("at.yedel.keyyyyyyyy.forge.launch.KeyyyyyyyyLoadingPlugin")
 
     useDevAuth(devAuthVersion)
-    useArgument("--version", "Keyyyyyyyy", GameSide.CLIENT)
+    useArgument("--version", mcData.version.toString(), GameSide.CLIENT)
     val resourcePackDir: String? = System.getenv("minecraft.resourcePackDir")
     if (!resourcePackDir.isNullOrBlank()) {
         println("Using resource pack directory $resourcePackDir from environment variable minecraft.resourcePackDir")
