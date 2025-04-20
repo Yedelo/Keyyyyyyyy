@@ -41,6 +41,13 @@ public abstract class KeyyyyyyyyLogger {
         }
     }
 
+    /**
+     * Returns standard log components that would be in a Log4J message.
+     * Known issue: On newer versions using Fabric (1.11+?) this is unnecessary, so it essentially appears twice.
+     * <p>
+     * Example return value: {@code [14:25:13] [Client thread/INFO] [Keyyyyyyyy]: }
+     * @param channel the log channel or type, such as info or error
+     */
     private static String getLogComponents(String channel) {
         return "[" + timeFormat.format(new Date()) + "]" + " [" + Thread.currentThread().getName() + "/" + channel.toUpperCase(Locale.ROOT) + "] [Keyyyyyyyy]: ";
     }

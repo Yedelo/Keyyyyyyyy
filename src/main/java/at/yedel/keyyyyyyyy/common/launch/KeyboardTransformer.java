@@ -46,6 +46,13 @@ public class KeyboardTransformer implements Opcodes {
 		}
 	}
 
+	/**
+	 * Transforms the given methodNode to always set the first local variable to 1 or true.
+	 * <p>
+	 * Example: {@code StaticClass.setBoolean(bool)} -> {@code StaticClass.setBoolean(true)}
+	 * @param methodNode a method node to transform.
+	 *                   This method node should represent a static method where the first parameter is a number or boolean.
+	 */
 	private void transformEnableRepeatEvents(MethodNode methodNode) {
 		addKeyyyyyyyyTransformedAnnotation(methodNode);
 		insertInsns(
@@ -54,6 +61,13 @@ public class KeyboardTransformer implements Opcodes {
 		);
 	}
 
+	/**
+	 * Transforms the given methodNode to always return true.
+	 * <p>
+	 * Example: {@code boolean bool = AnyClass.getBoolean()} -> {@code boolean bool = true}
+	 * @param methodNode a method node to transform.
+	 *                   This method node should represent a method that returns a number or boolean.
+	 */
 	private void transformAreRepeatEventsEnabled(MethodNode methodNode) {
 		addKeyyyyyyyyTransformedAnnotation(methodNode);
 		insertInsns(
@@ -62,6 +76,13 @@ public class KeyboardTransformer implements Opcodes {
 		);
 	}
 
+	/**
+	 * Transforms the given methodNode to always return false.
+	 * <p>
+	 * Example: boolean bool = {@code AnyClass.getBoolean()} -> {@code boolean bool = false}
+	 * @param methodNode a method node to transform.
+	 *                   This method node should represent a method that returns a number or boolean.
+	 */
 	private void transformIsRepeatEvent(MethodNode methodNode) {
 		addKeyyyyyyyyTransformedAnnotation(methodNode);
 		insertInsns(

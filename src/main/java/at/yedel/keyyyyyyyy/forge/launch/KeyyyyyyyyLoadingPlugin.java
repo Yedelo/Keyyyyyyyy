@@ -25,6 +25,7 @@ import org.apache.logging.log4j.core.filter.RegexFilter;
 public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
 	static {
 		KeyyyyyyyyLogger.setLoader(KeyyyyyyyyLogger.Loader.FORGE);
+		KeyyyyyyyyLogger.log("Starting Keyyyyyyyy " + KeyyyyyyyyConstants.MOD_VERSION + " (Forge)");
 		unlockLwjgl();
 		silenceLog4j();
 	}
@@ -104,7 +105,7 @@ public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
 
 	@Override
 	public void injectData(Map<String, Object> map) {
-		KeyyyyyyyyLogger.log("Starting Keyyyyyyyy " + KeyyyyyyyyConstants.MOD_VERSION + " (Forge)");
+
 	}
 
 	@Override

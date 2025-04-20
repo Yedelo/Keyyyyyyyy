@@ -19,16 +19,21 @@ plugins {
 }
 
 dependencies {
+    // legacy fabric does not incldue this by default. courtesy of deftu
+    // TODO make this not constant. these two versions work fine but it would be nice to be able to get the log4j version
     if (mcData.isLegacyFabric) {
         implementation("org.apache.logging.log4j:log4j-core:${
             if (mcData.version >= MinecraftVersions.VERSION_1_12) "2.0-beta9" else "2.8.1"
         }")
     }
+    // This looks scary, why are we including Fabric-ASM in forge versions too?
+    // Fabric-ASM doesn't make any breaking changes to the forge versions, the included jar is not touched by forge, and it is needed to compile
     listOf("modImplementation", "include").forEach {it("com.github.Chocohead:Fabric-ASM:$fabricAsmVersion")}
 }
 
 toolkitLoomHelper {
     disableRunConfigs(GameSide.SERVER)
+    // This also looks scary, but is only a system property and manifest attribute. Also not touched by Fabric.
     useCoreMod("at.yedel.keyyyyyyyy.forge.launch.KeyyyyyyyyLoadingPlugin")
 
     useDevAuth(devAuthVersion)
@@ -41,6 +46,7 @@ toolkitLoomHelper {
 }
 
 toolkitMultiversion {
+    // build/versions/
     moveBuildsToRootProject.set(true)
 }
 
