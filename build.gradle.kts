@@ -29,9 +29,7 @@ dependencies {
 
 toolkitLoomHelper {
     disableRunConfigs(GameSide.SERVER)
-    if (mcData.isLegacyForge) {
-        useCoreMod("at.yedel.keyyyyyyyy.forge.launch.KeyyyyyyyyLoadingPlugin")
-    }
+    useCoreMod("at.yedel.keyyyyyyyy.forge.launch.KeyyyyyyyyLoadingPlugin")
 
     useDevAuth(devAuthVersion)
     useArgument("--version", "Keyyyyyyyy", GameSide.CLIENT)
@@ -40,6 +38,10 @@ toolkitLoomHelper {
         println("Using resource pack directory $resourcePackDir from environment variable minecraft.resourcePackDir")
         useArgument("--resourcePackDir", resourcePackDir, GameSide.CLIENT)
     }
+}
+
+toolkitMultiversion {
+    moveBuildsToRootProject.set(true)
 }
 
 tasks {

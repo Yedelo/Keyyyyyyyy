@@ -14,11 +14,7 @@ preprocess {
                             "1.9.4-fabric"(10904, "yarn") {
                                 "1.9.4-forge"(10904, "srg") {
                                     "1.8.9-forge"(10809, "srg") {
-                                        "1.8.9-fabric"(10809, "yarn") {
-                                        // "1.8.8-forge"(10808, "srg") {
-                                        //     "1.8-forge"(10800, "srg")
-                                        // }
-                                        }
+                                        "1.8.9-fabric"(10809, "yarn")
                                     }
                                 }
                             }

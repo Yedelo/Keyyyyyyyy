@@ -4,11 +4,10 @@ package at.yedel.keyyyyyyyy.common.launch;
 
 import java.util.ArrayList;
 
+import at.yedel.keyyyyyyyy.common.KeyyyyyyyyLogger;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
-
-import static at.yedel.keyyyyyyyy.common.KeyyyyyyyyConstants.keyyyyyyyy;
 
 
 
@@ -24,7 +23,7 @@ public class KeyboardTransformer implements Opcodes {
 	private final AnnotationNode keyyyyyyyyTransformedAnnotation = new AnnotationNode(Type.getDescriptor(KeyyyyyyyyTransformed.class));
 
 	public void transform(ClassNode classNode) {
-		keyyyyyyyy.info("Found Keyboard class, transforming...");
+		KeyyyyyyyyLogger.log("Found Keyboard class, transforming...");
 		if (classNode.visibleAnnotations == null) {
 			classNode.visibleAnnotations = new ArrayList<>();
 		}
@@ -87,6 +86,6 @@ public class KeyboardTransformer implements Opcodes {
 	}
 
 	private void logTransformation(String methodName) {
-		keyyyyyyyy.info("- Found \"{}\" method, transforming...", methodName);
+		KeyyyyyyyyLogger.log("- Found \"" + methodName + "\" method, transforming...");
 	}
 }

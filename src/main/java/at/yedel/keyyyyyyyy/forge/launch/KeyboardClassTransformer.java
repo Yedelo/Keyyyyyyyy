@@ -2,6 +2,7 @@ package at.yedel.keyyyyyyyy.forge.launch;
 
 
 
+import at.yedel.keyyyyyyyy.common.KeyyyyyyyyConstants;
 import at.yedel.keyyyyyyyy.common.launch.KeyboardTransformer;
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
@@ -15,7 +16,7 @@ import java.util.Objects;
 public class KeyboardClassTransformer implements IClassTransformer {
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
-        if (!Objects.equals(name, "org.lwjgl.input.Keyboard")) return basicClass;
+        if (!Objects.equals(name, KeyyyyyyyyConstants.KEYBOARD_CLASS)) return basicClass;
         ClassNode classNode = new ClassNode();
         ClassReader classReader = new ClassReader(basicClass);
         classReader.accept(classNode, 0);

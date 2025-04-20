@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "Keyyyyyyyy",
+  "description": "${mod_description}",
+  "authors": [
+    "Yedel"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/keyyyyyyyy",
+    "issues": "https://github.com/Yedelo/Keyyyyyyyy/issues",
+    "sources": "https://github.com/Yedelo/Keyyyyyyyy"
+  },
+  "icon": "assets/keyyyyyyyy/logo.png",
+  "environment": "client",
+  "entrypoints": {
+    "mm:early_risers": [
+      "at.yedel.keyyyyyyyy.fabric.launch.KeyyyyyyyyEarlyRiser"
+    ]
+  },
+  "depends": {
+    "java": ">=8"
+  }
+}

@@ -9,6 +9,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import at.yedel.keyyyyyyyy.common.KeyyyyyyyyConstants;
+import at.yedel.keyyyyyyyy.common.KeyyyyyyyyLogger;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.launchwrapper.LaunchClassLoader;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
@@ -18,14 +19,14 @@ import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.filter.RegexFilter;
 
-import static at.yedel.keyyyyyyyy.common.KeyyyyyyyyConstants.keyyyyyyyy;
-
 
 
 @Name("KeyyyyyyyyLoadingPlugin")
 public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
 	static {
+		KeyyyyyyyyLogger.setLoader(KeyyyyyyyyLogger.Loader.FORGE);
 		unlockLwjgl();
+		silenceLog4j();
 	}
 
 	// Taken from LWJGLTwoPointFive
@@ -45,8 +46,6 @@ public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
 		if (!successfullyRemoved) {
 			throw new RuntimeException("Couldn't unlock LWJGL!");
 		}
-
-		silenceLog4j();
 	}
 
 	// Taken from PolyPatcher
@@ -84,7 +83,7 @@ public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
 			logger.addFilter(filter);
 		}
 		catch (Exception e) {
-			keyyyyyyyy.error("Failed to silence log4j!", e);
+			KeyyyyyyyyLogger.error("Failed to silence log4j!", e);
 		}
 	}
 
@@ -105,7 +104,7 @@ public class KeyyyyyyyyLoadingPlugin implements IFMLLoadingPlugin {
 
 	@Override
 	public void injectData(Map<String, Object> map) {
-		keyyyyyyyy.info("Starting Keyyyyyyyy {} (Forge)", KeyyyyyyyyConstants.MOD_VERSION);
+		KeyyyyyyyyLogger.log("Starting Keyyyyyyyy " + KeyyyyyyyyConstants.MOD_VERSION + " (Forge)");
 	}
 
 	@Override
