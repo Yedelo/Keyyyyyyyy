@@ -17,7 +17,6 @@ val modDescription by CommonProperty<String>()
 val modIcon by CommonProperty<String>()
 val rangedVersion by CommonProperty<Boolean>()
 val maxMc by CommonProperty<String>()
-val minecraftTarget by CommonProperty<String>()
 val finalFileName by CommonProperty<String>()
 
 repositories {
@@ -71,8 +70,7 @@ tasks {
             register("version", version.toString())
             register("java", target(javaVersion.majorVersion))
             register("fabricLoader", target(fabricLoaderVersion))
-            val minecraftDependency =
-                if (rangedVersion) ">=${sc.current.version} <=${maxMc}" else sc.current.version
+            val minecraftDependency = "<1.13"
             register("minecraft", minecraftDependency)
             register("mixinJava", "JAVA_${javaVersion.majorVersion}")
         }
@@ -90,8 +88,6 @@ tasks {
     }
 
     jar {
-        val minecraftTarget = if (rangedVersion) "${sc.current.version}-$maxMc" else sc.current.version
-        val finalFileName = "$modName-$version+$minecraftTarget-ornithe.jar"
         archiveFileName = finalFileName
         // manifest.attributes(mapOf())
     }

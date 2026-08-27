@@ -17,7 +17,6 @@ val modDescription by CommonProperty<String>()
 val modIcon by CommonProperty<String>()
 val rangedVersion by CommonProperty<Boolean>()
 val maxMc by CommonProperty<String>()
-val minecraftTarget by CommonProperty<String>()
 val finalFileName by CommonProperty<String>()
 
 repositories {
