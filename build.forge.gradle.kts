@@ -23,7 +23,12 @@ val finalFileName by CommonProperty<String>()
 repositories {
     gradlePluginPortal()
     mavenCentral()
-    maven("https://repo.spongepowered.org/repository/maven-public")
+    maven("https://repo.essential.gg/repository/maven-public")
+    maven("https://maven.deftu.dev/releases")
+    maven("https://maven.fabricmc.net")
+    maven("https://maven.architectury.dev")
+    maven("https://maven.minecraftforge.net")
+    maven("https://maven.deftu.dev/snapshots")
 }
 
 plugins {
@@ -40,14 +45,15 @@ plugins {
 }
 
 dependencies {
-
+    implementation("org.spongepowered:mixin:0.7.11-SNAPSHOT")
+    shadeNonTransitive("org.spongepowered:mixin:0.7.11-SNAPSHOT")
 }
 
 toolkitLoomHelper {
     disableRunConfigs(GameSide.SERVER)
 
     useTweaker("at.yedel.keyyyyyyyy.launch.KeyyyyyyyyTweaker")
-    useForgeMixin("$modId")
+    useForgeMixin(modId)
     useMixinRefMap("$modId.refmap")
 
     useDevAuth(sc.properties.getAs<String>("versions.devauth"))

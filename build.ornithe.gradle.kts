@@ -10,6 +10,7 @@ class CommonProperty<T> {
 
 val license: String by project
 val javaVersion = JavaVersion.VERSION_25
+val fabricLoaderVersion by CommonProperty<String>()
 val modName by CommonProperty<String>()
 val modId by CommonProperty<String>()
 val modDescription by CommonProperty<String>()
@@ -20,9 +21,14 @@ val minecraftTarget by CommonProperty<String>()
 val finalFileName by CommonProperty<String>()
 
 repositories {
-    mavenCentral()
     gradlePluginPortal()
-    maven("https://maven.fabricmc.net/releases")
+    mavenCentral()
+    maven("https://repo.essential.gg/repository/maven-public")
+    maven("https://maven.deftu.dev/releases")
+    maven("https://maven.fabricmc.net")
+    maven("https://maven.architectury.dev")
+    maven("https://maven.minecraftforge.net")
+    maven("https://maven.deftu.dev/snapshots")
 }
 
 plugins {
@@ -31,6 +37,7 @@ plugins {
 
 dependencies {
     minecraft("com.mojang:minecraft:${sc.current.version}")
+    implementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 }
 
 loom {
@@ -63,7 +70,7 @@ tasks {
             register("license", license)
             register("version", version.toString())
             register("java", target(javaVersion.majorVersion))
-            register("fabricLoader", target(sc.properties.getAs<String>("versions.fabricloader")))
+            register("fabricLoader", target(fabricLoaderVersion))
             val minecraftDependency =
                 if (rangedVersion) ">=${sc.current.version} <=${maxMc}" else sc.current.version
             register("minecraft", minecraftDependency)
