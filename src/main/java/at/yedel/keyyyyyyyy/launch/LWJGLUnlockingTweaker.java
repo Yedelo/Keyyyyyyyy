@@ -34,7 +34,14 @@ public class LWJGLUnlockingTweaker implements ITweaker {
             Field $classLoaderExceptions = LaunchClassLoader.class.getDeclaredField("classLoaderExceptions");
             $classLoaderExceptions.setAccessible(true);
             Object classLoaderExceptions = $classLoaderExceptions.get(Launch.classLoader);
-            successfullyRemoved = ((Set<String>) classLoaderExceptions).remove("org.lwjgl.");
+            Set<String> casted = ((Set<String>) classLoaderExceptions);
+            if (casted.contains("org.lwjgl.")) {
+                successfullyRemoved = casted.remove("org.lwjgl.");
+            }
+            else {
+                KeyyyyyyyyTweaker.keylogger.info("No \"org.lwjgl.\" class loader exception found, assuming that it has already been removed.");
+                successfullyRemoved = true;
+            }
         }
         catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException("Couldn't unlock LWJGL!", e);
