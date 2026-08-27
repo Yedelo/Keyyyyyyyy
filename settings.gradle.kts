@@ -1,6 +1,6 @@
 import kotlin.reflect.KProperty
 
-rootProject.name = "DreamersDeluxe"
+rootProject.name = "Keyyyyyyyy"
 
 pluginManagement {
     repositories {

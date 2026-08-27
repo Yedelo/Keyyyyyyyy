@@ -1,6 +1,5 @@
 versions.fabricloader = "0.19.3"
 versions.devauth = "1.2.2"
-license = "LGPL-3.0-only"
 
 ["1.8.9-ornithe"]
 versioning = "single"

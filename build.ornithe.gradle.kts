@@ -5,6 +5,7 @@ import org.gradle.kotlin.dsl.invoke
 val modDescription: String = extra["mod.description"] as String
 val license: String by project
 val fabricLoaderVersion = sc.properties.getAs<String>("versions.fabricloader")
+val javaVersion = JavaVersion.VERSION_25
 
 val loader = sc.current.project.split("-")[1]
 val rangedVersion = sc.properties.getAs<String>("versioning") == "range"
