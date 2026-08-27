@@ -1,5 +1,6 @@
 {
   "package": "at.yedel.keyyyyyyyy.mixin",
+  "compatibilityLevel": "${mixinJava}",
   "client": [
     "KeyboardMixin",
     "spice.KeyboardImplMixin"

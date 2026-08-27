@@ -78,6 +78,7 @@ tasks {
             register("modDescription", modDescription)
             register("modIcon", modIcon)
             register("version", version.toString())
+            register("mixinJava", "JAVA_8")
         }
         filesMatching(listOf("mcmod.info", "mixins.$modId.json")) { expand(props) }
 

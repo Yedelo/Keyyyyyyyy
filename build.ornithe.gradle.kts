@@ -74,6 +74,7 @@ tasks {
             val minecraftDependency =
                 if (rangedVersion) ">=${sc.current.version} <=${maxMc}" else sc.current.version
             register("minecraft", minecraftDependency)
+            register("mixinJava", "JAVA_${javaVersion.majorVersion}")
         }
         filesMatching(listOf("fabric.mod.json", "mixins.$modId.json")) { expand(props) }
 
