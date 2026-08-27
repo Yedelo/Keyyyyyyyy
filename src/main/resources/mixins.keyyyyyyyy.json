@@ -1,7 +1,8 @@
 {
-  "package": "at.yedel.${modId}.mixin",
+  "package": "at.yedel.keyyyyyyyy.mixin",
   "client": [
-    "KeyboardMixin"
+    "KeyboardMixin",
+    "spice.KeyboardImplMixin"
   ],
   "verbose": true
 }
