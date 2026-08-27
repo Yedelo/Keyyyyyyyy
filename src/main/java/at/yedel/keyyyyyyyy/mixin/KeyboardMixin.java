@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class KeyboardMixin {
     @Inject(method = "areRepeatEventsEnabled", at = @At("HEAD"), cancellable = true)
     private static void keyyyyyyyy$alwaysReturnEnabled(CallbackInfoReturnable<Boolean> cir) {
-        System.out.println("alwaysReturnEnabled");
         if (KeyyyyyyyyConfig.getInstance().isEnabled()) {
             cir.setReturnValue(true);
         }
@@ -24,7 +23,6 @@ public abstract class KeyboardMixin {
 
     @ModifyVariable(method = "enableRepeatEvents", at = @At("HEAD"), argsOnly = true)
     private static boolean keyyyyyyyy$alwaysEnableRepeatEvents(boolean original) {
-        System.out.println("alwaysEnableRepeatEvents");
         if (KeyyyyyyyyConfig.getInstance().isEnabled()) {
             return true;
         }
@@ -33,7 +31,6 @@ public abstract class KeyboardMixin {
 
     @Inject(method = "isRepeatEvent", at = @At("HEAD"), cancellable = true)
     private static void keyyyyyyyy$alwaysUnrepeatEvent(CallbackInfoReturnable<Boolean> cir) {
-        System.out.println("alwaysUnrepeatEvent");
         if (KeyyyyyyyyConfig.getInstance().isEnabled()) {
             cir.setReturnValue(false);
         }
