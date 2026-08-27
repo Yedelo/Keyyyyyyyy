@@ -1,6 +1,5 @@
 {
-  "package": "at.yedel.keyyyyyyyy.mixin",
-  "compatibilityLevel": "${mixinJava}",
+  "package": "at.yedel.${modId}.mixin",
   "client": [
     "KeyboardMixin"
   ],

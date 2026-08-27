@@ -79,8 +79,7 @@ tasks {
             register("modIcon", modIcon)
             register("version", version.toString())
         }
-        filesMatching(listOf("mcmod.info")) { expand(props) }
-        filesMatching("mixins.keyyyyyyyy.json") { expand("mixinJava" to "JAVA_8", "mixinMin" to "0.7.11") }
+        filesMatching(listOf("mcmod.info", "mixins.$modId.json")) { expand(props) }
 
         outputs.upToDateWhen { false }
     }
