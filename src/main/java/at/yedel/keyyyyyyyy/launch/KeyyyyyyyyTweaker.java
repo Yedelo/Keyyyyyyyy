@@ -24,6 +24,7 @@ public class KeyyyyyyyyTweaker implements ITweaker {
     @Override
     public void acceptOptions(List<String> args, File gameDir, File assetsDir, String profile) {
         queueTweaker("Mixin", MixinTweaker.class.getName());
+        queueTweaker("Mixin Configuration", MixinConfigurationTweaker.class.getName());
         queueTweaker("LWJGL Unlocking", LWJGLUnlockingTweaker.class.getName());
     }
 
