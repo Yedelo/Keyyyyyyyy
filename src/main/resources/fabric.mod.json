@@ -1,25 +1,34 @@
 {
   "schemaVersion": 1,
-  "id": "${mod_id}",
-  "version": "${mod_version}",
-  "name": "Keyyyyyyyy",
-  "description": "${mod_description}",
+  "name": "${modName}",
+  "id": "${modId}",
+  "description": "${modDescription}",
+  "version": "${version}",
   "authors": [
     "Yedel"
   ],
-  "contact": {
-    "homepage": "https://modrinth.com/mod/keyyyyyyyy",
-    "issues": "https://github.com/Yedelo/Keyyyyyyyy/issues",
-    "sources": "https://github.com/Yedelo/Keyyyyyyyy"
-  },
-  "icon": "assets/keyyyyyyyy/logo.png",
+  "license": "${license}",
+  "icon": "${modIcon}",
   "environment": "client",
-  "entrypoints": {
-    "mm:early_risers": [
-      "at.yedel.keyyyyyyyy.fabric.launch.KeyyyyyyyyEarlyRiser"
-    ]
-  },
+  "mixins": [
+    "mixins.${modId}.json"
+  ],
   "depends": {
-    "java": ">=8"
+    "java": "${java}",
+    "fabricloader": "${fabricLoader}",
+    "minecraft": "${minecraft}"
+  },
+  "contact": {
+    "homepage": "https://modrinth.com/mod/${modId}",
+    "issues": "https://github.com/Yedelo/${modName}/issues",
+    "sources": "https://github.com/Yedelo/${modName}"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.github_releases": "https://github.com/Yedelo/${modName}/releases/",
+        "modmenu.modrinth": "https://modrinth.com/mod/${modId}"
+      }
+    }
   }
 }

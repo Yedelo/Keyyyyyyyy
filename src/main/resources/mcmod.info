@@ -1,14 +1,14 @@
 [
     {
-        "modid": "${mod_id}",
-        "name": "Keyyyyyyyy",
-        "description": "${mod_description}",
-        "version": "${mod_version}",
-        "url": "https://modrinth.com/mod/keyyyyyyyy",
+        "modid": "${modId}",
+        "name": "${modName}",
+        "description": "${modDescription}",
+        "version": "${version}",
+        "url": "https://modrinth.com/mod/${modId}",
         "updateUrl": "",
         "authorList": ["Yedel"],
         "credits": "Debuggingss for example mod, DJtheRedstoner & Polyfrost for unlocking LWJGL code",
-        "logoFile": "assets/keyyyyyyyy/logo.png",
+        "logoFile": "${modIcon}",
         "screenshots": [],
         "dependencies": []
     }

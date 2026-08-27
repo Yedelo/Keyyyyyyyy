@@ -1,6 +1,24 @@
 import dev.deftu.gradle.utils.GameSide
 import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.java
+import org.jetbrains.kotlin.gradle.internal.builtins.StandardNames.FqNames.target
+import kotlin.reflect.KProperty
+
+// in stonecutter.gradle.kts
+class CommonProperty<T> {
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): T = (rootProject.extra[sc.current.project] as Map<String, Any?>)[property.name] as T
+}
+
+val license: String by project
+val javaVersion = JavaVersion.VERSION_25
+val modName by CommonProperty<String>()
+val modId by CommonProperty<String>()
+val modDescription by CommonProperty<String>()
+val modIcon by CommonProperty<String>()
+val rangedVersion by CommonProperty<Boolean>()
+val maxMc by CommonProperty<String>()
+val minecraftTarget by CommonProperty<String>()
+val finalFileName by CommonProperty<String>()
 
 repositories {
     gradlePluginPortal()
@@ -29,11 +47,11 @@ toolkitLoomHelper {
     disableRunConfigs(GameSide.SERVER)
 
     useTweaker("at.yedel.keyyyyyyyy.launch.KeyyyyyyyyTweaker")
-    useForgeMixin("legacy.keyyyyyyyy")
-    useMixinRefMap("legacy.keyyyyyyyy.refmap")
+    useForgeMixin("$modId")
+    useMixinRefMap("$modId.refmap")
 
     useDevAuth(sc.properties.getAs<String>("versions.devauth"))
-    useArgument("--version", "Keyyyyyyyy", GameSide.BOTH)
+    useArgument("--version", modName, GameSide.BOTH)
     val resourcePackDir: String? = System.getenv("minecraft.resourcePackDir")
     if (!resourcePackDir.isNullOrBlank()) {
         println("Using resource pack directory $resourcePackDir from environment variable minecraft.resourcePackDir")
@@ -48,8 +66,15 @@ tasks {
             set(key, value)
         }
         exclude("fabric.mod.json")
-        exclude("mixins.modern.keyyyyyyyy.json")
-        filesMatching("mixins.legacy.keyyyyyyyy.json") { expand("mixinJava" to "JAVA_8", "mixinMin" to "0.7.11") }
+        val props = buildMap {
+            register("modName", modName)
+            register("modId", modId)
+            register("modDescription", modDescription)
+            register("modIcon", modIcon)
+            register("version", version.toString())
+        }
+        filesMatching(listOf("mcmod.info")) { expand(props) }
+        filesMatching("mixins.keyyyyyyyy.json") { expand("mixinJava" to "JAVA_8", "mixinMin" to "0.7.11") }
 
         outputs.upToDateWhen { false }
     }
@@ -62,8 +87,8 @@ tasks {
         dependsOn("build")
     }
 
-    jar {
-        archiveFileName = "Keyyyyyyyy-$version+${mcData}.jar"
+    remapJar {
+        archiveFileName = finalFileName
         manifest.attributes(
             mapOf(
                 "ModSide" to "CLIENT",
