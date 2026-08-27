@@ -1,4 +1,6 @@
-rootProject.name = extra["mod.name"].toString()
+import kotlin.reflect.KProperty
+
+rootProject.name = "DreamersDeluxe"
 
 pluginManagement {
     repositories {
@@ -10,30 +12,26 @@ pluginManagement {
         maven("https://maven.architectury.dev")
         maven("https://maven.minecraftforge.net")
         maven("https://maven.deftu.dev/snapshots")
-    }
-    plugins {
-        val dgt = "2.32.3"
-        id("dev.deftu.gradle.multiversion-root") version dgt
+        maven("https://maven.kikugie.dev/releases") { name = "KikuGie Releases" }
+        maven("https://maven.kikugie.dev/snapshots") { name = "KikuGie Snapshots" }
     }
 }
 
-rootProject.buildFileName = "root.gradle.kts"
 
-listOf(
-    "1.12.2-forge",
-    "1.12.2-fabric",
-    "1.11.2-fabric",
-    "1.11.2-forge",
-    "1.10.2-forge",
-    "1.10.2-fabric",
-    "1.9.4-fabric",
-    "1.9.4-forge",
-    "1.8.9-forge",
-    "1.8.9-fabric"
-).forEach { version ->
-    include(":$version")
-    project(":$version").apply {
-        projectDir = file("versions/$version")
-        buildFileName = "../../build.gradle.kts"
+plugins {
+    id("dev.kikugie.stonecutter") version "0.10-alpha.6"
+    id("dev.kikugie.loom-back-compat") version "0.2"
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
+
+stonecutter {
+    create(rootProject) {
+        fun registerProject(versionString: String, loader: String) {
+            version("$versionString-$loader", versionString).buildscript("build.$loader.gradle.kts")
+        }
+
+        registerProject("1.8.9", "forge")
+        registerProject("1.8.9", "ornithe")
+        vcsVersion = "1.8.9-forge"
     }
 }
