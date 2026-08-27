@@ -1,7 +1,7 @@
 versions.fabricloader = "0.19.3"
 versions.devauth = "1.2.2"
 
-["1.8.9-ornithe"]
+["1.8.9-fabric"]
 versioning = "single"
 
 ["1.8.9-forge"]

@@ -14,7 +14,7 @@ stonecutter parameters {
     val loader = current.project.split("-")[1]
 
     constants {
-        match(loader, "forge", "ornithe")
+        match(loader, "forge", "fabric")
     }
 
     replacements {
