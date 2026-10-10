@@ -18,6 +18,6 @@ This mod was tested with 1.8-1.12.2 in the past, so these versions should be con
 
 |        | Vanilla (LWJGL 2) | Spice (LWJGL 3) | legacy-lwjgl3 (LWJGL 3) | Lumen/Lenis/Pylon (LWJGL 3) |
 |--------|:-----------------:|:---------------:|:------------------:|:---------------------------:|
-| Forge  |        ☑️         |       ☑️        |                    |                             |
+| Forge  |        ☑️         |       ☑️        |                    |             ❌              |
 | Fabric |        ☑️         |                 |         ☑️         |             ☑️              |
 
