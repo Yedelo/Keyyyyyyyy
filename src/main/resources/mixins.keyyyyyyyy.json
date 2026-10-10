@@ -3,7 +3,9 @@
   "compatibilityLevel": "${mixinJava}",
   "client": [
     "KeyboardMixin",
-    "spice.KeyboardImplMixin"
+    "spice.KeyboardImplMixin",
+    "pylon.KeyboardSdlMixin",
+    "pylon.EventMixin"
   ],
   "verbose": true
 }
