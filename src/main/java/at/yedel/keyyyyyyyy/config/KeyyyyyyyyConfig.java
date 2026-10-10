@@ -9,13 +9,13 @@ public class KeyyyyyyyyConfig {
         return INSTANCE;
     }
 
-    private boolean enabled = true;
+    private final KeyyyyyyyyConfigImplementation implementation = new BasicImplementation();
 
     public boolean isEnabled() {
-        return enabled;
+        return implementation.isEnabled();
     }
 
     public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+        implementation.setEnabled(enabled);
     }
 }
