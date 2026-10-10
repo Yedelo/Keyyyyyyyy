@@ -1,6 +1,6 @@
 # Keyyyyyyyy
 
-![keyyyyyyyy logo](src/main/resources/assets/keyyyyyyyy/logo.png)
+![keyyyyyyyy logo](src/main/resources/assets/keyyyyyyyy/keyyyyyyyy.png)
 
 ![Badge](https://img.shields.io/badge/discord-yedel-blue)
 
