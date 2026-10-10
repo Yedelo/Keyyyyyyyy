@@ -28,7 +28,6 @@ repositories {
     maven("https://maven.architectury.dev")
     maven("https://maven.minecraftforge.net")
     maven("https://maven.deftu.dev/snapshots")
-    maven("https://maven.cloverclient.com/releases")
 }
 
 plugins {
@@ -47,7 +46,6 @@ plugins {
 dependencies {
     implementation("org.spongepowered:mixin:0.7.11-SNAPSHOT")
     shadeNonTransitive("org.spongepowered:mixin:0.7.11-SNAPSHOT")
-    implementation("pl.tomgirl:pylon:0.2.1")
 }
 
 toolkitLoomHelper {
