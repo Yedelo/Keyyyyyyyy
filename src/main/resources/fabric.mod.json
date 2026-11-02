@@ -13,6 +13,9 @@
   "mixins": [
     "mixins.${modId}.json"
   ],
+  "entrypoints": {
+    "oneconfig:config": ["at.yedel.keyyyyyyyy.config.oneconfig.OneConfigEntrypoint"]
+  },
   "depends": {
     "java": "${java}",
     "fabricloader": "${fabricLoader}",
