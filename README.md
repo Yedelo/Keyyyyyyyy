@@ -1,6 +1,6 @@
 # Keyyyyyyyy
 
-![keyyyyyyyy logo](src/main/resources/assets/keyyyyyyyy/logo.png)
+![keyyyyyyyy logo](src/main/resources/assets/keyyyyyyyy/keyyyyyyyy.png)
 
 ![Badge](https://img.shields.io/badge/discord-yedel-blue)
 
@@ -16,8 +16,8 @@ This mod does not have any specific minecraft versions attached, as it only targ
 Forge should work down to whatever version LaunchWrapper was implemented (1.6.2?), Fabric may work on all versions.
 This mod was tested with 1.8-1.12.2 in the past, so these versions should be considered stable.
 
-|        | Base (LWJGL 2) | Spice (LWJGL 3) | moehreag (LWJGL 3) | Lumen/Lenis (LWJGL 3) |
-|--------|:--------------:|:---------------:|:------------------:|:---------------------:|
-| Forge  |       ☑️       |       ☑️        |                    |                       |
-| Fabric |       ☑️       |                 |         ☑️         |          ☑️           |
+|        | Vanilla (LWJGL 2) | Spice (LWJGL 3) | legacy-lwjgl3 (LWJGL 3) | Lumen/Lenis/Pylon (LWJGL 3) |
+|--------|:-----------------:|:---------------:|:-----------------------:|:---------------------------:|
+| Forge  |        ☑️         |       ☑️        |                         |             ❌              |
+| Fabric |        ☑️         |                 |           ☑️            |             ☑️              |
 
