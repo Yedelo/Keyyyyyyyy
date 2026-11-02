@@ -17,14 +17,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class KeyboardImplMixin {
     @ModifyVariable(method = "keyHandler", at = @At("HEAD"), argsOnly = true, index = 5)
     private int keyyyyyyyy$presentRegularPressAction(int original) {
-        if (KeyyyyyyyyConfig.getInstance().isEnabled() && original == 2) {
+        if (KeyyyyyyyyConfig.getInstance().isEnabled()  && KeyyyyyyyyConfig.getInstance().shouldRepeat() && original == 2) {
             return 1;
         }
         return original;
     }
+
     @ModifyVariable(method = "createEvent", at = @At("HEAD"), argsOnly = true, index = 4)
     private boolean keyyyyyyyy$createUnrepeatEvent(boolean original) {
-        if (KeyyyyyyyyConfig.getInstance().isEnabled()) {
+        if (KeyyyyyyyyConfig.getInstance().isEnabled() && KeyyyyyyyyConfig.getInstance().shouldRepeat()) {
             return false;
         }
         return original;
@@ -32,14 +33,14 @@ public abstract class KeyboardImplMixin {
 
     @Inject(method = "areRepeatEventsEnabled", at = @At("HEAD"), cancellable = true)
     private void keyyyyyyyy$alwaysReturnEnabled(CallbackInfoReturnable<Boolean> cir) {
-        if (KeyyyyyyyyConfig.getInstance().isEnabled()) {
+        if (KeyyyyyyyyConfig.getInstance().isEnabled() && KeyyyyyyyyConfig.getInstance().shouldRepeat()) {
             cir.setReturnValue(true);
         }
     }
 
     @ModifyVariable(method = "enableRepeatEvents", at = @At("HEAD"), argsOnly = true)
     private boolean keyyyyyyyy$alwaysEnableRepeatEvents(boolean original) {
-        if (KeyyyyyyyyConfig.getInstance().isEnabled()) {
+        if (KeyyyyyyyyConfig.getInstance().isEnabled() && KeyyyyyyyyConfig.getInstance().shouldRepeat()) {
             return true;
         }
         return original;
@@ -47,7 +48,7 @@ public abstract class KeyboardImplMixin {
 
     @Inject(method = "isRepeatEvent", at = @At("HEAD"), cancellable = true)
     private void keyyyyyyyy$alwaysUnrepeatEvent(CallbackInfoReturnable<Boolean> cir) {
-        if (KeyyyyyyyyConfig.getInstance().isEnabled()) {
+        if (KeyyyyyyyyConfig.getInstance().isEnabled() && KeyyyyyyyyConfig.getInstance().shouldRepeat()) {
             cir.setReturnValue(false);
         }
     }

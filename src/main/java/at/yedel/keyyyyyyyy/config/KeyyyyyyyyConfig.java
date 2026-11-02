@@ -18,4 +18,8 @@ public class KeyyyyyyyyConfig {
     public void setEnabled(boolean enabled) {
         implementation.setEnabled(enabled);
     }
+
+    public boolean shouldRepeat() {
+        return implementation.shouldRepeat();
+    }
 }

@@ -9,8 +9,14 @@ public class BasicImplementation implements KeyyyyyyyyConfigImplementation {
     public boolean isEnabled() {
         return enabled;
     }
+
     @Override
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    @Override
+    public boolean shouldRepeat() {
+        return true;
     }
 }
