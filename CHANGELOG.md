@@ -1,3 +1,5 @@
-# **3.0.1**
+# **3.2.0**
+_Updated the minor version by 2 instead of 1 for fun..._
 
-- Add file to mixin platform for mixins to load properly
+- Add support for configuring the mod with OneConfig on Fabric
+- Add config implementations that can be changed programatically

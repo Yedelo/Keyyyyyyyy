@@ -21,3 +21,8 @@ This mod was tested with 1.8-1.12.2 in the past, so these versions should be con
 | Forge  |        ☑️         |       ☑️        |                         |             ❌              |
 | Fabric |        ☑️         |                 |           ☑️            |             ☑️              |
 
+## Configuration
+
+This mod is always enabled by default.  
+When on Fabric 1.8.9, [OneConfig](https://modrinth.com/mod/oneconfig) can be used to enable/disable the mod.
+
