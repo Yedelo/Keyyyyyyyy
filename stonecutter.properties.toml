@@ -1,4 +1,5 @@
 versions.fabricloader = "0.19.3"
+versions.oneconfig = "1.6.1"
 versions.devauth = "1.2.2"
 
 ["1.8.9-fabric"]

@@ -1,3 +1,4 @@
+import jdk.jfr.internal.JVM.exclude
 import org.gradle.api.tasks.Copy
 import org.gradle.internal.Actions.set
 import org.gradle.kotlin.dsl.invoke
@@ -11,6 +12,7 @@ class CommonProperty<T> {
 val license: String by project
 val javaVersion = JavaVersion.VERSION_25
 val fabricLoaderVersion by CommonProperty<String>()
+val oneconfigVersion by CommonProperty<String>()
 val modName by CommonProperty<String>()
 val modId by CommonProperty<String>()
 val modDescription by CommonProperty<String>()
@@ -28,6 +30,8 @@ repositories {
     maven("https://maven.architectury.dev")
     maven("https://maven.minecraftforge.net")
     maven("https://maven.deftu.dev/snapshots")
+    maven("https://repo.polyfrost.org/releases") { name = "Polyfrost Releases" }
+    maven("https://repo.polyfrost.org/snapshots") { name = "Polyfrost Snapshots" }
 }
 
 plugins {
@@ -37,6 +41,9 @@ plugins {
 dependencies {
     minecraft("com.mojang:minecraft:${sc.current.version}")
     implementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
+    for (module in arrayOf("config", "config-impl")) {
+        compileOnly("org.polyfrost.oneconfig:$module:$oneconfigVersion") { isTransitive = false }
+    }
 }
 
 loom {

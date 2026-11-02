@@ -33,6 +33,7 @@ stonecutter parameters {
         operator fun getValue(thisRef: Any?, property: KProperty<*>): T = value
     }
     val fabricLoaderVersion by Declare(properties.getAs<String>("versions.fabricloader"))
+    val oneconfigVersion by Declare(properties.getAs<String>("versions.oneconfig"))
 
     val modName by Declare(extra["mod.name"])
     val modId by Declare(extra["mod.id"])
