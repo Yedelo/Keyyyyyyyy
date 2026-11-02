@@ -9,7 +9,7 @@ public class KeyyyyyyyyConfig {
         return INSTANCE;
     }
 
-    private final KeyyyyyyyyConfigImplementation implementation = new BasicImplementation();
+    private KeyyyyyyyyConfigImplementation implementation = new BasicImplementation();
 
     public boolean isEnabled() {
         return implementation.isEnabled();
@@ -21,5 +21,9 @@ public class KeyyyyyyyyConfig {
 
     public boolean shouldRepeat() {
         return implementation.shouldRepeat();
+    }
+
+    public void setImplementation(KeyyyyyyyyConfigImplementation implementation) {
+        this.implementation = implementation;
     }
 }
