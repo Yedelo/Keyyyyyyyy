@@ -1,4 +1,4 @@
-/*? if forge {*/
+/*? if forge {*//*
 package at.yedel.keyyyyyyyy.launch;
 
 
@@ -33,4 +33,4 @@ public class MixinConfigurationTweaker implements ITweaker {
     @Override public String getLaunchTarget() { return ""; }
     @Override public String[] getLaunchArguments() { return new String[0]; }
 }
-/*?}*/
+*//*?}*/

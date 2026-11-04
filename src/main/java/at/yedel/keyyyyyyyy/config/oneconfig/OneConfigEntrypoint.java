@@ -1,5 +1,5 @@
 //? if fabric {
-/*package at.yedel.keyyyyyyyy.config.oneconfig;
+package at.yedel.keyyyyyyyy.config.oneconfig;
 
 
 
@@ -13,4 +13,4 @@ public class OneConfigEntrypoint implements ConfigEntrypoint {
         context.register(OneConfigImplementation.getInstance());
     }
 }
-*///?}
+//?}

@@ -1,5 +1,5 @@
 //? if fabric {
-/*package at.yedel.keyyyyyyyy.config.oneconfig;
+package at.yedel.keyyyyyyyy.config.oneconfig;
 
 
 
@@ -45,4 +45,4 @@ public class OneConfigImplementation extends Config implements KeyyyyyyyyConfigI
         return true;
     }
 }
-*///?}
+//?}

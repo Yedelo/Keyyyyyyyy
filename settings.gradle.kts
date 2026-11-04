@@ -32,6 +32,6 @@ stonecutter {
 
         registerProject("1.8.9", "forge")
         registerProject("1.8.9", "fabric")
-        vcsVersion = "1.8.9-forge"
+        vcsVersion = "1.8.9-fabric"
     }
 }

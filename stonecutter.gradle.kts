@@ -8,7 +8,7 @@ plugins {
 
 val modrinthLogoLink: String by project
 
-stonecutter active "1.8.9-forge"
+stonecutter active "1.8.9-fabric"
 
 stonecutter parameters {
     val loader = current.project.split("-")[1]
