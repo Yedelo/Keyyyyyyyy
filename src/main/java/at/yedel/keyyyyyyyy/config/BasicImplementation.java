@@ -11,11 +11,6 @@ public class BasicImplementation implements KeyyyyyyyyConfigImplementation {
     }
 
     @Override
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    @Override
     public boolean shouldRepeat() {
         return true;
     }

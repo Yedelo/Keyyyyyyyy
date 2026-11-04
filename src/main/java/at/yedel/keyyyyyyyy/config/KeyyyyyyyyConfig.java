@@ -15,10 +15,6 @@ public class KeyyyyyyyyConfig {
         return implementation.isEnabled();
     }
 
-    public void setEnabled(boolean enabled) {
-        implementation.setEnabled(enabled);
-    }
-
     public boolean shouldRepeat() {
         return implementation.shouldRepeat();
     }

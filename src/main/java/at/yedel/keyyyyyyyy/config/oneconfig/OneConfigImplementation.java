@@ -35,12 +35,6 @@ public class OneConfigImplementation extends Config implements KeyyyyyyyyConfigI
     }
 
     @Override
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-        save();
-    }
-
-    @Override
     public boolean shouldRepeat() {
         return true;
     }
