@@ -15,6 +15,10 @@ public class KeyyyyyyyyConfig {
         return implementation.isEnabled();
     }
 
+    public boolean isTargetEnabled(InjectionTarget target) {
+        return implementation.isTargetEnabled(target);
+    }
+
     public boolean shouldRepeat() {
         return implementation.shouldRepeat();
     }

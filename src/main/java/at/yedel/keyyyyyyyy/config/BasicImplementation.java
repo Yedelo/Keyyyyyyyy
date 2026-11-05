@@ -11,6 +11,11 @@ public class BasicImplementation implements KeyyyyyyyyConfigImplementation {
     }
 
     @Override
+    public boolean isTargetEnabled(InjectionTarget target) {
+        return true;
+    }
+
+    @Override
     public boolean shouldRepeat() {
         return true;
     }
