@@ -3,7 +3,6 @@ package at.yedel.keyyyyyyyy.config.oneconfig;
 
 
 
-import at.yedel.keyyyyyyyy.config.InjectionTarget;
 import at.yedel.keyyyyyyyy.config.KeyyyyyyyyConfig;
 import at.yedel.keyyyyyyyy.config.KeyyyyyyyyConfigImplementation;
 import org.polyfrost.oneconfig.api.config.v1.Config;
@@ -33,11 +32,6 @@ public class OneConfigImplementation extends Config implements KeyyyyyyyyConfigI
     @Override
     public boolean isEnabled() {
         return enabled;
-    }
-
-    @Override
-    public boolean isTargetEnabled(InjectionTarget target) {
-        return true;
     }
 
     @Override
